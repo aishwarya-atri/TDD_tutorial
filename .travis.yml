@@ -17,3 +17,8 @@ script:
 - coverage run manage.py test
 after_success:
 - coveralls
+deploy:
+  provider: heroku:git
+  api_key:
+    secure: 577811fe-1172-4e91-871e-5acca00acd05
+  edge: true
