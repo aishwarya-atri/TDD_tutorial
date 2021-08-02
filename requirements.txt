@@ -5,6 +5,3 @@ gunicorn
 dj-database-url
 whitenoise
 coveralls
-django-heroku==0.3.1
-python-dotenv==0.19.0
-
