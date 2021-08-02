@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-import django_heroku
 import dj_database_url
 import dotenv
 
@@ -82,12 +81,15 @@ WSGI_APPLICATION = 'superlists.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {}
 
-if os.environ.get('TRAVIS_TEST_RESULT') == 0:
+if 'HEROKU_APP' in os.environ:
     #if not 'TRAVIS' in os.environ:
-    DATABASES = {}
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+    DATABASE = {}
+    import dj_database_url
+    DATABASE['default'] = dj_database_url.config(conn_max_age=600)
+    import django_heroku
+
+    django_heroku.settings(locals())
 
 else:
     DATABASES = {
@@ -96,12 +98,11 @@ else:
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
     }
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-django_heroku.settings(locals())
 
-options = DATABASES['default'].get('OPTIONS', {})
-options.pop('sslmode', None)
+# options = DATABASES['default'].get('OPTIONS', {})
+# options.pop('sslmode', None)
 
 
 # Password validation
