@@ -10,6 +10,7 @@ before_install:
  -export PATH=$PATH:$PWD/geckodriver
  -export DISPLAY=:99.0
  -sh -e /etc/init.d/xvfb start
+dist: xenial
 install:
  -pip3 install -r requirements.txt
 services:
