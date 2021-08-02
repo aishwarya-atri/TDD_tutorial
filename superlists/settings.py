@@ -27,7 +27,7 @@ SECRET_KEY = 'ls-yw37n1s2si-t!z49dx#6j*lo94!8(m+3a35+uzttij_mz2-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["am-tdd-tutorial.herokuapp.com","127.0.0.1"]
 
 dotenv_file = os.path.join(BASE_DIR, ".env")
 if os.path.isfile(dotenv_file):
