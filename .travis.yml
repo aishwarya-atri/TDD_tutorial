@@ -20,5 +20,6 @@ after_success:
 deploy:
   provider: heroku:git
   api_key:
-    secure: 577811fe-1172-4e91-871e-5acca00acd05
+    secure: Code execution.
   edge: true
+  app: am-tdd-tutorial
