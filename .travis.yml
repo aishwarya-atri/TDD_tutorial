@@ -19,8 +19,8 @@ after_success:
 - coveralls
 deploy:
   provider: heroku:git
-  api_key:
-    secure: Code execution.
-  edge: true
   app: am-tdd-tutorial
   on: AM_ICTRAINING-787_TDD_tutorial
+  api_key:
+    secure: "f33PYV/z6a1uy6sINgbdan69z3iHqsVZPV5Y99F6qy6CGbK4Eh8FcpxPEgJuvcXdVIHhu7oCmF7zkJY26SWbBqukK8VZHj58+ELKlh2Dpj8yq/kKMifhMRsD2WUeVvGJK5WQ44VvAqn3QccCwNlT3rfGlnpDqGPShKpBT6FLse06e2TLM3ohyD0LGaLwCclyao7IKMyELstJ1TpnWSmoA8lybo9gWZXoxiD/inCuicK8mejymJBexkYq0U/bDuljf6RktkpZmCHK9hztWH6rbjWviIclhXIbi0hLmaHteCOjzLFy7GYaBPJUQYXlXW6HKF6UdxgAoO5OpcvubxaiDDHhUwz4kPPXw1uu1GFy5wMAbXKdd1CBofEKjC4mQfki/2OlgaG2B+sznIQIq6rTeFu6/nkci30O2fVvXcsinYLyK5r44dgSJlkVXybIKED9UC/daHqN9uOisFF1DRAy60ZRdF9heFSjhMJj+3xYM+AG5SEpBUmiWHkJAMLu8+5G4vD661NG2JEehdkytzIqzM6bHIMZyB9luoqq4VDbXCrbUREMG9WvKEpZTXbMEY8UtFYgDeQPFGymc1sAzROM9CEZxdi4GVJGPZG7Lxq4Iu+2szfFY9RMctGFzW7yqNDTOiaQFD2CWbYjOeSa/4Jy4Y6ESQs+B8btMXt8WUKrD0I="
+
