@@ -18,7 +18,7 @@ script:
 after_success:
 - coveralls
 deploy:
-  provider: heroku:git
+  provider: heroku
   app: am-tdd-tutorial
   on: AM_ICTRAINING-787_TDD_tutorial
   api_key:
