@@ -1,0 +1,25 @@
+language: python
+addons:
+- firefox: latest
+python:
+- 3.7.4
+before_install:
+- wget https://github.com/mozilla/geckodriver/releases/download/v0.25.0/geckodriver-v0.25.0-linux64.tar.gz
+- mkdir geckodriver
+- tar -xzf geckodriver-v0.25.0-linux64.tar.gz -C geckodriver
+- export PATH=$PATH:$PWD/geckodriver
+dist: xenial
+services:
+- xvfb
+install:
+- pip install -r requirements.txt
+script:
+- coverage run manage.py test
+after_success:
+- coveralls
+deploy:
+  provider: heroku
+  app: am-tdd-tutorial
+  on: AM_ICTRAINING-787_TDD_tutorial
+  api_key:
+    secure: cgWibcJrDWBiueCQuw5QYmMr0aUhVX+xcuck5Nz05Gvn+OPdNP/xZZ+vIx2qshPpDjWX+Dipm3gfNjyn7m6FkRN33eLKi1IeAjLSU5t6J30IHDl7UjOeeg8t1W3MlDonDRes7UQ8lOKz2+fq247d+Q0qNe01A4VQNi4i4X05qjACiA/zTZfUoD4JENV5DjXj9NsDF8fk2JQIAS6v++eDPNFU/zx9/mxQGj8m/RgltMbqLuS8peUW1BiUnu6ZZKpvEob3w+1bPAiog8aRoyeyTIfqTcg2bvM35RRzQGyqClMl1Z/MMT8QvmBK3ADthJVDXSWL6jVD6wt5CFc9Qp3nESFfAs4OS4OakqvHbdf8LzGCw9AQfbmVJZE0+YNpG6Ycnf+wjX6qNTmKnBQqo/G/iDlJm2mn0ujmvqHo/+qoiY0kFhV/InJJ3+PFwrDGyHS/3lpQw+v8JviHN0z8vujA1d/ES6mGAV9o+i5jt4z6PI8EORPdXmEwHDT98Yav1X4+GU0070zflJ+tZVq3758UaTDPb3TKLaFVNxBIjptAKUAarmIZw80z+B5wbimW+sw75bYv5FXO0RNSnjynfb+GML9fAudgss74lnbxA6td7vP6de8tmkSpJ0NQrI714Qdo2goB73eQ7oPd024beUeQJXrN2SL3AoJrpLlLTX5/Cdw=
